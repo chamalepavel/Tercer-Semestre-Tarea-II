@@ -1,78 +1,20 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+const rates = {
+    USD: { USD: 1, RUB: 90, CNY: 7.2 },
+    RUB: { USD: 0.011, RUB: 1, CNY: 0.08 },
+    CNY: { USD: 0.14, RUB: 12.5, CNY: 1 }
+};
+
+function convert() {
+    let amount = parseFloat(document.getElementById("amount").value);
+    let from = document.getElementById("from").value;
+    let to = document.getElementById("to").value;
+    
+    if (isNaN(amount) || amount <= 0) {
+        document.getElementById("result").innerText = "Ingrese un número válido";
+        return;
+    }
+    
+    let result = amount * rates[from][to];
+    document.getElementById("result").innerText = `${amount} ${from} = ${result.toFixed(2)} ${to}`;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.container {
-    width: 80%;
-    max-width: 500px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-h2 {
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.input-group {
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #555;
-}
-
-input, select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 15px;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.result {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #e8f5e9;
-    border-radius: 4px;
-    text-align: center;
-}
-
-.error {
-    color: #dc3545;
-    margin-top: 10px;
-    text-align: center;
-}
