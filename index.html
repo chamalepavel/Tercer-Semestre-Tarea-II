@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor de Monedas</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Conversor de Monedas</h2>
+        
+        <div class="input-group">
+            <label for="amount">Cantidad:</label>
+            <input type="number" id="amount" placeholder="Ingresa tu cantidad">
+        </div>
+
+        <div class="input-group">
+            <label for="fromCurrency">Moneda origen:</label>
+            <select id="fromCurrency">
+                <option value="us">Dólar</option>
+                <option value="es">Euro</option>
+                <option value="jp">Yen</option>
+                <option value="uk">Libra esterlina</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="toCurrency">Moneda destino:</label>
+            <select id="toCurrency">
+                <option value="us">Dólar</option>
+                <option value="es">Euro</option>
+                <option value="jp">Yen</option>
+            </select>
+        </div>
+
+        <button onclick="convertir()">Convertir</button>
+
+        <div id="result" class="result"></div>
+    </div>
+</body>
+</html>
